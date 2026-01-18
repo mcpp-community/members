@@ -1,0 +1,35 @@
+name: Daily scan join issues
+
+on:
+  schedule:
+    - cron: "20 2 * * *"   # 每天 02:20
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: mcpp-community
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Scan and close completed issues
+        env:
+          ORG: mcpp-community # ${{ vars.ORG }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+        run: python .github/scripts/scan_join_issues.py

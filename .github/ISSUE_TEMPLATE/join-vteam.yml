@@ -1,0 +1,37 @@
+name: Join VTeam | 加入志愿者团队申请
+description: 加入 mcpp社区 志愿者团队申请（需要审核）
+title: "[Join] vteam | 加入志愿者团队 - @<your-username>"
+labels: ["join-request", "target:vteam", "needs-review"]
+body:
+  - type: input
+    attributes:
+      label: 推荐人
+      description: 请填写推荐人的 GitHub 用户名 (如果有)
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: 申请理由
+      description: 请说明你为什么想要加入志愿者团队
+      placeholder: 例如：希望能够为社区做出更多贡献，参与项目维护等
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 过往在社区中的贡献记录
+      description: 请列举你在 mcpp 社区或相关开源项目中的贡献 (或准备参与的内容)
+      placeholder: |
+        例如：
+        - 三个主要(或准备)贡献点：
+          - 提交了 XX 个 PR
+          - 参与了 XX 项目的开发
+          - 在社区讨论中帮助解决了 XX 问题
+        - 过往贡献记录的链接
+          - PR 链接
+          - Issue 链接
+          - ...
+    validations:
+      required: true

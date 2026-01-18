@@ -1,0 +1,11 @@
+name: Join Members | 加入社区成员申请
+description: 加入 mcpp社区 组织成员申请（自动邀请）
+title: "[Join] Org Members | 加入社区成员 - @<your-username>"
+labels: ["join-request", "target:members"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Confirm | 确认
+      options:
+        - label: I confirm the issue author is the account to be invited. | 我确认 issue 作者是需要邀请的账户。
+          required: true

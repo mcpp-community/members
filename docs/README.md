@@ -1,0 +1,21 @@
+## 实现逻辑
+
+- github app
+  - 创建github app
+  - 安装app到仓库
+  - 配置仓库app的ID和密钥
+- github action (app实现)
+  - 配置文件: `.github/join-config.yml`
+  - workflows:
+    - 处理请求: `.github/workflows/join-org.yml`
+    - 扫描&关闭的请求: `.github/workflows/scan_joins.py`
+  - 标签系统
+    - join-request
+    - invited
+    - needs-review
+    - target:member
+    - target:vteam
+    - approvel
+  - 获取app授权
+  - 自动检测issues
+  - app/bot自动邀请&留言提示
