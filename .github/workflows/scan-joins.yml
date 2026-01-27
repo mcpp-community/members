@@ -1,8 +1,9 @@
 name: Daily scan join issues
 
 on:
-  schedule:
-    - cron: "20 2 * * *"   # 每天 02:20
+  # impl by: https://github.com/mcpp-community/mcpp-bot
+  #schedule:
+  #  - cron: "20 2 * * *"   # 每天 02:20
   workflow_dispatch:
 
 permissions:
